@@ -12,16 +12,13 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Developer
+              BSIT Student Programmer
             </h3>
 
             <p className="text-muted-foreground">
-              4 years na pong nag poprgram
+            BSIT student with 4 years of programming experience and a foundational knowledge of various programming languages.
             </p>
 
-            <p className="text-muted-foreground">
-              im beri pashoeneyt abawt prugraming
-            </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
