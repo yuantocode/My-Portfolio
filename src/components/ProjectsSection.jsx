@@ -3,29 +3,34 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Project 1",
+    title: "Barrier System",
     description: "idk pa",
-    image: "/projects/placeholder1.jpg",
-    tags: ["HTML", "CSS", "JS"],
-    demoUrl: "#",
+    image: "/projects/Project1.jpg",
+    tags: ["C#", "CSS", "JS"],
     githubUrl: "#",
   },
   {
     id: 2,
-    title: "Project 2",
-    description: "idk pa",
-    image: "/projects/placeholder2.jpg",
-    tags: ["HTML", "CSS", "JS"],
-    demoUrl: "#",
+    title: "Attendance System",
+    description: "Logs in and Out system",
+    image: "/projects/Project2.jpg",
+    tags: ["C#", "CSS", "JS"],
     githubUrl: "#",
   },
   {
     id: 3,
-    title: "Project 3",
-    description: "idk pa",
-    image: "/projects/placeholder3.jpg",
+    title: "Classroom Conduciveness Monitoring System",
+    description: "Monitors the Environmental Conditions of a Public Classroom",
+    image: "/projects/Project3.jpg",
+    tags: ["React", "JS", "MongoDB"],
+    githubUrl: "#",
+  },
+  {
+    id: 4,
+    title: "Visitor Counter System",
+    description: "Counts Visitors",
+    image: "/projects/Project4.jpg",
     tags: ["HTML", "CSS", "JS"],
-    demoUrl: "#",
     githubUrl: "#",
   },
 ];
@@ -73,13 +78,7 @@ export const ProjectsSection = () => {
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
+
                     <a
                       href={project.githubUrl}
                       target="_blank"

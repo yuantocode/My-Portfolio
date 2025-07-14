@@ -1,4 +1,5 @@
 import {AboutSection} from "../components/AboutSection";
+import CertsSection from "../components/CertsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { HeroSection } from "../components/HeroSection";
@@ -16,6 +17,7 @@ export const Home = () => {
 
         {/* Background Effects */}
         <StarBackground />
+        
 
         {/* NavBar */}
         <Navbar />
@@ -26,6 +28,7 @@ export const Home = () => {
             <AboutSection />
             <SkillsSection />
             <ProjectsSection />
+            <CertsSection />
             <ContactSection />
         </main>
 
