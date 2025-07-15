@@ -1,64 +1,58 @@
 import { ArrowDown } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
-import { useRef } from "react";
+import Tilt from "react-parallax-tilt";
+import { Typewriter } from "react-simple-typewriter";
 
 export const HeroSection = () => {
-  const imageRef = useRef(null);
-
-  // Mouse movement effect for tilt
-  const handleMouseMove = (e) => {
-    const image = imageRef.current;
-    if (!image) return;
-
-    const { left, top, width, height } = image.getBoundingClientRect();
-    const x = ((e.clientX - left) / width - 0.5) * 30; // max rotate 15deg
-    const y = ((e.clientY - top) / height - 0.5) * -30;
-
-    image.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale(1.05)`;
-  };
-
-  const resetTransform = () => {
-    const image = imageRef.current;
-    if (!image) return;
-
-    image.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
-  };
-
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-4"
     >
       <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10">
-        {/* 👤 Image Section */}
+        {/* 👤 3D Tilt Image */}
         <div className="flex justify-center md:justify-end">
-          <div
-            className="transition-transform duration-300 ease-in-out animate-float hover:animate-none"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={resetTransform}
-            ref={imageRef}
+          <Tilt
+            glareEnable={true}
+            glareMaxOpacity={0.3}
+            glareColor="#ffffff"
+            glareBorderRadius="9999px"
+            scale={1.05}
+            tiltMaxAngleX={20}
+            tiltMaxAngleY={20}
+            transitionSpeed={1500}
+            className="rounded-full"
           >
             <img
               src={profileImage}
               alt="Profile"
-              className="w-56 h-56 md:w-72 md:h-72 object-cover rounded-full shadow-lg border-4 border-primary transition-all duration-500 hover:rotate-[360deg]"
+              className="w-56 h-56 md:w-72 md:h-72 object-cover rounded-full shadow-lg border-4 border-primary"
             />
-          </div>
+          </Tilt>
         </div>
 
         {/* 💬 Text Content */}
         <div className="text-center md:text-left space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in">Hi, I'm</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1"> Uan</span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2"> Jimenez</span>
+            Hi, I'm{" "}
+            <span className="text-primary">
+              <Typewriter
+                words={["Uan Jimenez", "Innovative", "Quick Learning", "Collaborative", "Focused"]}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
+            </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0 opacity-0 animate-fade-in-delay-3">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0">
             I'm a BSIT student who's passionate about Data Analytics and Back-End Development
           </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+          <div className="pt-4">
             <a href="#projects" className="cosmic-button">
               View My Work
             </a>
