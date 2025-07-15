@@ -17,10 +17,17 @@ const certificates = [
   },
   {
     id: 3,
-    title: "UI/UX Design Essentials",
-    issuer: "Google UX",
-    date: "January 2025",
-    file: "/certs/uiux-google.pdf",
+    title: "AWS Academy Graduate - AWS Academy Cloud Foundations",
+    issuer: "Amazon Web Services Training and Certification",
+    date: "November 13, 2023",
+    file: "/certs/Aws-Academy-Jimenez.pdf",
+  },
+  {
+    id: 4,
+    title: "CCNA: Introduction to Networks",
+    issuer: "Cisco",
+    date: "Nov 15, 2022",
+    file: "/certs/Cisco-Jimenez.pdf",
   },
 ];
 

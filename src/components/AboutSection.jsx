@@ -14,7 +14,7 @@ export const AboutSection = () => {
             <h3 className="text-2xl font-semibold">BSIT Student Programmer</h3>
 
             <p className="text-muted-foreground">
-              I'm a dedicated BSIT student with 4 years of hands-on programming experience and a solid foundation in multiple languages. Known for being highly adaptable and sociable, I thrive in collaborative environments and can easily blend into any IT team. My persistence drives me — even when concepts are tough, I keep learning until I get it right.
+              I'm a dedicated BSIT student with 4 years of hands-on programming experience and a solid foundation in multiple languages. Known for being highly adaptable and sociable, I thrive in collaborative environments and can easily blend into any IT team. My persistence drives me even when concepts are tough, I keep learning until I get it right.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -23,7 +23,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/resume/Julian-Manuel-Jimenez-Resume.pdf"
+                href="/resume/Resume-Jimenez.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV

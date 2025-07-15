@@ -23,7 +23,7 @@ const projects = [
     description: "Monitors the Environmental Conditions of a Public Classroom",
     image: "/projects/Project3.jpg",
     tags: ["React", "JS", "MongoDB"],
-    githubUrl: "#",
+    githubUrl: "https://github.com/Heracles404/learning-environment-monitoring-system",
   },
   {
     id: 4,
@@ -31,6 +31,14 @@ const projects = [
     description: "Counts Visitors",
     image: "/projects/Project4.jpg",
     tags: ["HTML", "CSS", "JS"],
+    githubUrl: "#",
+  },
+  {
+    id: 5,
+    title: "Car Elevator",
+    description: "Elevators for Cars",
+    image: "/projects/Project5.jpg",
+    tags: ["C#", "JS"],
     githubUrl: "#",
   },
 ];
