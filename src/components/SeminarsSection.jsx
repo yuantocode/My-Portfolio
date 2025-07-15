@@ -14,9 +14,9 @@ const seminars = [
     description: "The Complete Node.js Course played a critical role in broadening my understanding of server-side JavaScript development."
   },
   {
-    title: "Cybersecurity Essentials",
-    organizer: "PLDT x TechTalks PH",
-    date: "October 2023",
+    title: "The Ultimate Docker Course",
+    organizer: "Mosh Hamidani",
+    date: "September 16, 2024",
     description: "Learned about network protection, endpoint security, and threat mitigation."
   }
 ];
@@ -35,7 +35,7 @@ export const SeminarsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Seminars Attended
+          Seminars and Workshops
         </motion.h2>
 
         <motion.p
@@ -44,7 +44,7 @@ export const SeminarsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          A few of the events and seminars that helped shape my technical foundation.
+          A few of the workshops and seminars that helped shape my technical foundation.
         </motion.p>
 
         <div className="grid gap-8 mt-10">

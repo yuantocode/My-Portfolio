@@ -35,13 +35,13 @@ export const SkillsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: false }} // replay on scroll
+          viewport={{ once: false }}
           className="text-3xl md:text-4xl font-bold mb-12 text-center"
         >
           My <span className="text-primary">Skills</span>
         </motion.h2>
 
-        {/* 🔘 Category Filter Buttons */}
+        {/* 🔘 Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button
@@ -59,17 +59,23 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        {/* 🎯 Skills Grid */}
+        {/* 💻 Skill Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill, index) => (
               <motion.div
                 key={skill.name}
                 layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ scale: 1.03, y: -4 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.05,
+                  ease: "easeOut",
+                }}
+                viewport={{ once: false }}
                 className="bg-card p-6 rounded-xl shadow-md border border-border card-hover hover:shadow-lg"
               >
                 <div className="mb-4">
@@ -79,8 +85,8 @@ export const SkillsSection = () => {
                   <motion.div
                     className="bg-primary h-2 rounded-full"
                     initial={{ width: 0 }}
-                    animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1 }}
                   />
                 </div>
                 <div className="text-right mt-1">

@@ -5,6 +5,7 @@ import { CosmicBackground } from "../components/CosmicBackground";
 import { Footer } from "../components/Footer";
 import { HeroSection } from "../components/HeroSection";
 import { Navbar } from "../components/Navbar";
+import { PracticumSection } from "../components/PracticumSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { SeminarsSection } from "../components/SeminarsSection";
 import { SkillsSection } from "../components/SkillSection";
@@ -33,6 +34,7 @@ export const Home = () => {
             <ProjectsSection />
             <CertsSection />
             <SeminarsSection />
+            <PracticumSection />
             <ContactSection />
         </main>
 
