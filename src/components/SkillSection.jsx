@@ -1,22 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"; // your utility for class merging
 
 const skills = [
-  // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 65, category: "frontend" },
-  { name: "React", level: 50, category: "frontend" },
-  { name: "Tailwind CSS", level: 50, category: "frontend" },
-
-  // Backend
-  { name: "Node.js", level: 50, category: "backend" },
-  { name: "Express", level: 50, category: "backend" },
-  { name: "MongoDB", level: 50, category: "backend" },
-
-  // Tools
-  { name: "Git/GitHub", level: 50, category: "tools" },
-  { name: "Figma", level: 50, category: "tools" },
+  { name: "HTML/CSS", category: "frontend" },
+  { name: "JavaScript", category: "frontend" },
+  { name: "React", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Node.js", category: "backend" },
+  { name: "Express", category: "backend" },
+  { name: "MongoDB", category: "backend" },
+  { name: "Git/GitHub", category: "tools" },
+  { name: "Figma", category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
@@ -31,6 +26,7 @@ export const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
+        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +37,7 @@ export const SkillsSection = () => {
           My <span className="text-primary">Skills</span>
         </motion.h2>
 
-        {/* 🔘 Filter Buttons */}
+        {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button
@@ -59,7 +55,7 @@ export const SkillsSection = () => {
           ))}
         </div>
 
-        {/* 💻 Skill Cards */}
+        {/* Skill Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill, index) => (
@@ -76,24 +72,9 @@ export const SkillsSection = () => {
                   ease: "easeOut",
                 }}
                 viewport={{ once: false }}
-                className="bg-card p-6 rounded-xl shadow-md border border-border card-hover hover:shadow-lg"
+                className="bg-card p-6 rounded-xl shadow-md border border-border hover:shadow-lg text-center"
               >
-                <div className="mb-4">
-                  <h3 className="font-semibold text-lg">{skill.name}</h3>
-                </div>
-                <div className="w-full bg-muted/30 h-2 rounded-full overflow-hidden">
-                  <motion.div
-                    className="bg-primary h-2 rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1 }}
-                  />
-                </div>
-                <div className="text-right mt-1">
-                  <span className="text-sm text-muted-foreground">
-                    {skill.level}%
-                  </span>
-                </div>
+                <h3 className="font-semibold text-lg">{skill.name}</h3>
               </motion.div>
             ))}
           </AnimatePresence>

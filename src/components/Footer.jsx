@@ -6,7 +6,7 @@ export const Footer = () => {
       {" "}
       <p className="text-sm text-muted-foreground">
         {" "}
-        &copy; {new Date().getFullYear()} di ko din pa alam lalagay ko pero copyright shizz to
+        &copy; {new Date().getFullYear()} Julian Manuel V. Jimenez
       </p>
       <a
         href="#hero"
