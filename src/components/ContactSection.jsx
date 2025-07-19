@@ -26,8 +26,8 @@ export const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_fuoszav",    // 🔁 Replace with your EmailJS service ID
-        "template_fhws4gq",   // 🔁 Replace with your EmailJS template ID
+        "service_2xu8izc",    // 🔁 Replace with your EmailJS service ID
+        "template_5fatv7i",   // 🔁 Replace with your EmailJS template ID
         form,
         "lti1NJ2rjBJ8_Gmb5"     // 🔁 Replace with your EmailJS public key
       )
