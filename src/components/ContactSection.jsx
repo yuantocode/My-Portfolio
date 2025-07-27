@@ -113,14 +113,14 @@ export const ContactSection = () => {
               </div>
             </div>
 
-            <div className="pt-8">
+            {/* <div className="pt-8">
               <h4 className="font-medium mb-4">Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
                 <a href="https://www.linkedin.com/in/julian-manuel-jimenez-343689352/" target="_blank"><Linkedin /></a>
                 <a href="https://www.facebook.com/yuuaaannnn/" target="_blank"><Facebook /></a>
                 <a href="https://www.instagram.com/uanjimenez/" target="_blank"><Instagram /></a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right - Form Card */}

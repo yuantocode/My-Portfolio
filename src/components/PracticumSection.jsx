@@ -57,7 +57,7 @@ export const PracticumSection = () => {
             </h3>
             <ul className="list-disc list-inside text-muted-foreground space-y-2">
               <li>
-                The main assignment given to the student involved the development of a web-based internal tool intended to assist with certain operational processes in the department. The project was developed using front-end technologies such as HTML, CSS, and JavaScript.
+              The main assignment given to the student involved the development of a web-based internal tool intended to assist with certain operational processes in the department. The project was developed using front-end technologies such as HTML, CSS, and JavaScript.
               </li>
             </ul>
           </section>
@@ -69,7 +69,7 @@ export const PracticumSection = () => {
             </h3>
             <p className="text-muted-foreground">
               A total of{" "}
-              <span className="font-bold text-foreground">486 hours</span> were
+              <span className="font-bold text-foreground">360 hours</span> were
               rendered during the internship.
             </p>
           </section>
