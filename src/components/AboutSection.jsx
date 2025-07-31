@@ -57,7 +57,7 @@ export const AboutSection = () => {
               experience and a solid foundation in multiple languages. Known for
               being highly adaptable and sociable, I thrive in collaborative
               environments and can easily blend into any IT team. My persistence
-              drives me even when concepts are tough — I keep learning until I
+              drives me even when concepts are tough. I keep learning until I
               get it right.
             </p>
 
@@ -68,7 +68,7 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href="/resume/Resume-Jimenez.pdf"
+                href="/resume/ResumeJimenez.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV
