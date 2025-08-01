@@ -1,18 +1,16 @@
+"use client";
+
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
   Mail,
-  MapPin,
   Phone,
+  MapPin,
   Send,
-  Twitter,
 } from "lucide-react";
+import { useState } from "react";
+import emailjs from "emailjs-com";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
-import { FloatingPlanet } from "./FloatingPlanet";
-import emailjs from "emailjs-com"; // ✅ Import EmailJS
+import Saturn from "./Saturn"; // ← Import the spinning Saturn
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -26,10 +24,10 @@ export const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_2xu8izc",    // 🔁 Replace with your EmailJS service ID
-        "template_5fatv7i",   // 🔁 Replace with your EmailJS template ID
+        "service_2xu8izc",        // Replace with your EmailJS service ID
+        "template_5fatv7i",       // Replace with your template ID
         form,
-        "lti1NJ2rjBJ8_Gmb5"     // 🔁 Replace with your EmailJS public key
+        "lti1NJ2rjBJ8_Gmb5"       // Replace with your public key
       )
       .then(
         () => {
@@ -37,7 +35,7 @@ export const ContactSection = () => {
             title: "Message sent!",
             description: "Thank you for your message. I'll get back to you soon.",
           });
-          form.reset(); // Clear form
+          form.reset();
           setIsSubmitting(false);
         },
         (error) => {
@@ -53,124 +51,78 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section
+      id="contact"
+      className="py-24 px-4 relative bg-transparent backdrop-blur-sm"
+    >
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
+          Get In <span className="text-primary">Touch</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Left - Contact Info */}
+          {/* Left: Info */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-white">Contact Information</h3>
 
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Email</h4>
-                  <a
-                    href="mailto:UanJimenez0408@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    UanJimenez0408@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Phone</h4>
-                  <a
-                    href="tel:+639952744950"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    09952744950
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-medium">Location</h4>
-                  <span className="text-muted-foreground hover:text-primary transition-colors">
-                    Sta Rosa, Philippines
-                  </span>
-                </div>
-              </div>
+            <div className="space-y-6">
+              <InfoItem
+                icon={<Mail className="h-6 w-6 text-primary" />}
+                title="Email"
+                content="UanJimenez0408@gmail.com"
+                href="mailto:UanJimenez0408@gmail.com"
+              />
+              <InfoItem
+                icon={<Phone className="h-6 w-6 text-primary" />}
+                title="Phone"
+                content="09952744950"
+                href="tel:+639952744950"
+              />
+              <InfoItem
+                icon={<MapPin className="h-6 w-6 text-primary" />}
+                title="Location"
+                content="Sta Rosa, Philippines"
+              />
             </div>
 
-            {/* <div className="pt-8">
-              <h4 className="font-medium mb-4">Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a href="https://www.linkedin.com/in/julian-manuel-jimenez-343689352/" target="_blank"><Linkedin /></a>
-                <a href="https://www.facebook.com/yuuaaannnn/" target="_blank"><Facebook /></a>
-                <a href="https://www.instagram.com/uanjimenez/" target="_blank"><Instagram /></a>
-              </div>
-            </div> */}
+            {/* Spinning Saturn Below Contact Info */}
+            <div className="w-full h-40 md:h-48">
+              <Saturn />
+            </div>
           </div>
 
-          {/* Right - Form Card */}
-          <div className="relative bg-card p-8 rounded-lg shadow-xs overflow-hidden">
-            {/* 🪐 Floating Planet */}
-            <div className="absolute top-0 right-0 w-20 h-20 opacity-60 pointer-events-none z-0">
-              <FloatingPlanet />
-            </div>
-
+          {/* Right: Form */}
+          <div className="relative bg-white/5 border border-white/10 p-8 rounded-lg shadow-md">
             <div className="relative z-10">
-              <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-
+              <h3 className="text-2xl font-semibold mb-6 text-white">Send a Message</h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
+                <InputField
+                  id="name"
+                  name="name"
+                  label="Your Name"
+                  placeholder="Uan Jimenez..."
+                />
+                <InputField
+                  id="email"
+                  name="email"
+                  type="email"
+                  label="Your Email"
+                  placeholder="email@example.com"
+                />
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name" // 🔁 Ensure matches your template field
-                    required
-                    className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-                    placeholder="Uan Jimenez..."
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email" // 🔁 Ensure matches your template field
-                    required
-                    className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-                    placeholder="email@gmail.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                     Your Message
                   </label>
                   <textarea
                     id="message"
-                    name="message" // 🔁 Ensure matches your template field
+                    name="message"
                     required
-                    className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-md border border-input bg-background text-white focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                     placeholder="Hello, I'd like to talk about..."
                   />
                 </div>
@@ -179,7 +131,7 @@ export const ContactSection = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className={cn(
-                    "cosmic-button w-full flex items-center justify-center gap-2"
+                    "w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-primary text-white rounded-md hover:bg-primary/90 transition"
                   )}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
@@ -193,3 +145,40 @@ export const ContactSection = () => {
     </section>
   );
 };
+
+// Reusable input field
+const InputField = ({ id, name, label, type = "text", placeholder }) => (
+  <div>
+    <label htmlFor={id} className="block text-sm font-medium text-white mb-2">
+      {label}
+    </label>
+    <input
+      type={type}
+      id={id}
+      name={name}
+      required
+      className="w-full px-4 py-3 rounded-md border border-input bg-background text-white focus:outline-none focus:ring-2 focus:ring-primary"
+      placeholder={placeholder}
+    />
+  </div>
+);
+
+// Reusable info item
+const InfoItem = ({ icon, title, content, href }) => (
+  <div className="flex items-start space-x-4">
+    <div className="p-3 rounded-full bg-primary/10">{icon}</div>
+    <div>
+      <h4 className="font-medium text-white">{title}</h4>
+      {href ? (
+        <a
+          href={href}
+          className="text-muted-foreground hover:text-primary transition-colors"
+        >
+          {content}
+        </a>
+      ) : (
+        <span className="text-muted-foreground">{content}</span>
+      )}
+    </div>
+  </div>
+);
