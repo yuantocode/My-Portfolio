@@ -10,7 +10,7 @@ import { useState } from "react";
 import emailjs from "emailjs-com";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import Saturn from "./Saturn"; // ← Import the spinning Saturn
+import Saturn from "./Saturn";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -24,10 +24,10 @@ export const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_2xu8izc",        // Replace with your EmailJS service ID
-        "template_5fatv7i",       // Replace with your template ID
+        "service_2xu8izc",         // Replace with your EmailJS service ID
+        "template_5fatv7i",        // Replace with your template ID
         form,
-        "lti1NJ2rjBJ8_Gmb5"       // Replace with your public key
+        "lti1NJ2rjBJ8_Gmb5"        // Replace with your public key
       )
       .then(
         () => {
@@ -53,10 +53,10 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-24 px-4 relative bg-transparent backdrop-blur-sm"
+      className="py-24 px-4 relative bg-background/80 backdrop-blur-md"
     >
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-foreground">
           Get In <span className="text-primary">Touch</span>
         </h2>
 
@@ -67,7 +67,7 @@ export const ContactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left: Info */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6 text-white">Contact Information</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-foreground">Contact Information</h3>
 
             <div className="space-y-6">
               <InfoItem
@@ -89,16 +89,16 @@ export const ContactSection = () => {
               />
             </div>
 
-            {/* Spinning Saturn Below Contact Info */}
+            {/* Saturn Animation */}
             <div className="w-full h-40 md:h-48">
               <Saturn />
             </div>
           </div>
 
           {/* Right: Form */}
-          <div className="relative bg-white/5 border border-white/10 p-8 rounded-lg shadow-md">
+          <div className="relative bg-card bg-opacity-90 border border-border p-8 rounded-lg shadow-md">
             <div className="relative z-10">
-              <h3 className="text-2xl font-semibold mb-6 text-white">Send a Message</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">Send a Message</h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <InputField
                   id="name"
@@ -114,7 +114,7 @@ export const ContactSection = () => {
                   placeholder="email@example.com"
                 />
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Your Message
                   </label>
                   <textarea
@@ -122,7 +122,7 @@ export const ContactSection = () => {
                     name="message"
                     required
                     rows={4}
-                    className="w-full px-4 py-3 rounded-md border border-input bg-background text-white focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                     placeholder="Hello, I'd like to talk about..."
                   />
                 </div>
@@ -146,10 +146,10 @@ export const ContactSection = () => {
   );
 };
 
-// Reusable input field
+// Reusable Input Field
 const InputField = ({ id, name, label, type = "text", placeholder }) => (
   <div>
-    <label htmlFor={id} className="block text-sm font-medium text-white mb-2">
+    <label htmlFor={id} className="block text-sm font-medium text-foreground mb-2">
       {label}
     </label>
     <input
@@ -157,18 +157,18 @@ const InputField = ({ id, name, label, type = "text", placeholder }) => (
       id={id}
       name={name}
       required
-      className="w-full px-4 py-3 rounded-md border border-input bg-background text-white focus:outline-none focus:ring-2 focus:ring-primary"
+      className="w-full px-4 py-3 rounded-md border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
       placeholder={placeholder}
     />
   </div>
 );
 
-// Reusable info item
+// Reusable Info Item
 const InfoItem = ({ icon, title, content, href }) => (
   <div className="flex items-start space-x-4">
     <div className="p-3 rounded-full bg-primary/10">{icon}</div>
     <div>
-      <h4 className="font-medium text-white">{title}</h4>
+      <h4 className="font-medium text-foreground">{title}</h4>
       {href ? (
         <a
           href={href}
