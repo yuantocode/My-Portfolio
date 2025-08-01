@@ -1,93 +1,108 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import {
+  Download,
+  BookOpen,
+  Building2,
+  Code2,
+  Clock3,
+  Sparkles,
+} from "lucide-react";
 
 export const PracticumSection = () => {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <section
       id="practicum"
-      className="py-24 px-4 bg-gradient-to-b from-background to-secondary/40 relative z-10"
+      className="relative z-10 py-28 px-4 bg-gradient-to-br from-secondary/30 to-background/90"
     >
-      <div className="container mx-auto max-w-4xl">
-        {/* Main Overview Card */}
+      <div className="container mx-auto max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
-          className="bg-card p-10 rounded-2xl shadow-xl border border-border space-y-10"
+          className="backdrop-blur-md bg-background/70 border border-border rounded-3xl shadow-2xl p-10 space-y-14"
         >
-          {/* Section Title */}
-          <h2 className="text-4xl font-bold text-center text-foreground mb-6">
-            Practicum <span className="text-primary">Overview</span>
+          <h2 className="text-5xl font-extrabold text-center text-foreground">
+            My <span className="text-primary">Practicum Journey</span>
           </h2>
 
           {/* Introduction */}
-          <section>
-            <h3 className="text-xl font-semibold text-primary border-b pb-1 mb-2 border-primary/30">
-              Introduction
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              The student interned at STMicroelectronics, a global leader in semiconductor solutions, at its manufacturing facility in Calamba, Laguna. The company is known for producing a wide range of electronic components and systems used in diverse industries including automotive, industrial, and consumer electronics. STMicroelectronics is committed to innovation, quality, and sustainable practices across its global operations.
-            </p>
-          </section>
+          <Section
+            icon={<BookOpen className="w-6 h-6 text-primary" />}
+            title="Introduction"
+            content="I interned at STMicroelectronics in Calamba, Laguna, a global semiconductor leader known for its innovation, quality, and sustainable practices. The experience provided exposure to cutting-edge manufacturing operations supporting industries from automotive to consumer electronics."
+          />
 
           {/* Company Background */}
-          <section>
-            <h3 className="text-xl font-semibold text-primary border-b pb-1 mb-2 border-primary/30">
-              Company Background
-            </h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              STMicroelectronics’ Calamba site operates with a strong commitment to quality, innovation, and service excellence. It supports the company’s global mission by providing efficient, high-quality manufacturing services.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-2">
-              <span className="font-semibold text-foreground">Vision:</span> To be the <em>preferred choice</em> for excellent products and services, fostering a culture of accountability, growth, and sustainability driven by empowered people.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-2">
-              <span className="font-semibold text-foreground">Mission:</span> To sort, assemble, and test integrated circuits and modules through innovative, fast, and cost-effective solutions. The site delivers these products and services to customers, becoming an integral part of their value creation and contributing to mutual business growth.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              <span className="font-semibold text-foreground">Purpose:</span> <em>Be the preferred choice.</em>
-            </p>
-          </section>
+          <Section
+            icon={<Building2 className="w-6 h-6 text-primary" />}
+            title="Company Background"
+            content={
+              <>
+                <p>
+                  STMicroelectronics’ Calamba site exemplifies service
+                  excellence and global innovation. The plant ensures
+                  high-quality production that aligns with ST's global mission.
+                </p>
+                <p className="mt-2">
+                  <strong className="text-primary">Vision:</strong> To be the{" "}
+                  <em>preferred choice</em> in delivering outstanding products
+                  and services.
+                </p>
+                <p>
+                  <strong className="text-primary">Mission:</strong> To
+                  efficiently sort, assemble, and test integrated circuits and
+                  modules, contributing value to clients.
+                </p>
+                <p>
+                  <strong className="text-primary">Purpose:</strong>{" "}
+                  <em>Be the preferred choice.</em>
+                </p>
+              </>
+            }
+          />
 
-          {/* Individual Contributions */}
-          <section>
-            <h3 className="text-xl font-semibold text-primary border-b pb-1 mb-2 border-primary/30">
-              My Individual Contributions
-            </h3>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>
-              The main assignment given to the student involved the development of a web-based internal tool intended to assist with certain operational processes in the department. The project was developed using front-end technologies such as HTML, CSS, and JavaScript.
-              </li>
-            </ul>
-          </section>
+          {/* Contributions */}
+          <Section
+            icon={<Code2 className="w-6 h-6 text-primary" />}
+            title="My Individual Contributions"
+            content={
+              <div className="space-y-2 text-muted-foreground">
+                Developed a web-based internal tool using HTML, CSS, and
+                JavaScript to optimize departmental processes.
+              </div>
+            }
+          />
 
-          {/* Total Hours Rendered */}
-          <section>
-            <h3 className="text-xl font-semibold text-primary border-b pb-1 mb-2 border-primary/30">
-              Total Hours Rendered
-            </h3>
-            <p className="text-muted-foreground">
-              A total of{" "}
-              <span className="font-bold text-foreground">360 hours</span> were
-              rendered during the internship.
-            </p>
-          </section>
+          {/* Hours Rendered */}
+          <Section
+            icon={<Clock3 className="w-6 h-6 text-primary" />}
+            title="Total Hours Rendered"
+            content={
+              <p className="text-muted-foreground">
+                I completed a total of{" "}
+                <span className="font-bold text-primary">360 hours</span>{" "}
+                during my internship.
+              </p>
+            }
+          />
 
           {/* Realizations */}
-          <section>
-            <h3 className="text-xl font-semibold text-primary border-b pb-1 mb-2 border-primary/30">
-              Realizations
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              The practicum allowed me to grow professionally by combining practical industrial training with structured IT learning. It helped me see the connection between quality processes and information systems while reinforcing my interest in full-stack development. This experience has prepared me to take on future roles where technical knowledge, analytical thinking, and digital tools come together.
-            </p>
-          </section>
+          <Section
+            icon={<Sparkles className="w-6 h-6 text-primary" />}
+            title="Realizations"
+            content="The practicum bridged academic theory and practical IT work. I developed professionally through exposure to real-world systems, reinforcing my passion for full-stack development and the role of digital tools in process improvement."
+          />
 
           {/* Download Button */}
-          <div className="text-center pt-6 z-10 relative">
+          <div className="text-center pt-4">
             <a
-              href="/report/Final Report Jimenez.pdf" // 🔁 Make sure this path is valid
+              href="/report/FINAL REPORT_JIMENEZ.pdf"
               download
               className="inline-flex items-center gap-2 px-6 py-3 text-white bg-primary hover:bg-primary/90 transition rounded-full shadow-lg"
             >
@@ -98,5 +113,26 @@ export const PracticumSection = () => {
         </motion.div>
       </div>
     </section>
+  );
+};
+
+const Section = ({ icon, title, content }) => {
+  return (
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+      }}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="space-y-3"
+    >
+      <div className="flex items-center gap-3">
+        <div className="p-2 bg-primary/20 rounded-full">{icon}</div>
+        <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
+      </div>
+      <div className="leading-relaxed text-muted-foreground">{content}</div>
+    </motion.div>
   );
 };

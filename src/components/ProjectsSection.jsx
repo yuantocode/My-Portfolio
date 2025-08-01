@@ -8,7 +8,7 @@ const projects = [
   {
     id: 1,
     title: "Barrier System",
-    description: "A basic barrier system using RFID and microcontroller to control access points like gates or doors.",
+    description: "The barrier system is a basic access control setup designed to manage entry through gates or doors using RFID (Radio Frequency Identification) technology. It involves the integration of RFID readers with a microcontroller to identify authorized users. When an authorized RFID tag is scanned, the system sends a signal to activate a motor or actuator that opens the barrier (such as a gate, door, or boom). If the tag is unauthorized, access is denied and the barrier remains closed. This type of system enhances security by limiting access to specific individuals and can be used in parking areas, building entrances, or secure facilities. It also allows for easy logging and monitoring of entries and exits, and can be expanded with additional features like buzzer alerts, LCD displays, or remote access control.",
     image: "/projects/Project1.jpg",
     tags: ["C#", "CSS", "JS"],
     githubUrl: "https://github.com/yuantocode/RFID-Controlled-Barrier-Using-Arduino",
@@ -66,6 +66,32 @@ const projects = [
     "WebStorm"
   ],
   githubUrl: "https://github.com/yuantocode/elevated_car", // Update this if a new repo exists
+},
+{
+  id: 5,
+  title: "Badge Certification System",
+  description:
+    "The Badge Certification System is an automated platform designed to streamline and modernize the management of user certifications. It replaces the traditional manual process of verifying and renewing certificates by automatically identifying expired certifications and updating them upon renewal. When a certificate becomes invalid, the system sends real-time notifications and stores the invalid data for audit or tracking purposes. Additionally, the system includes a barcode or QR code scanning feature, allowing quick access to each user's certification status. This enables authorized personnel to instantly verify whether a badge or certificate is valid, expired, or pending renewal, improving both speed and accuracy in validation processes. The system enhances operational efficiency, minimizes the risk of oversight, and supports compliance across teams or organizations.",
+  image: "/projects/Project5.jpg", // You can update this to a new image if you have one
+  tags: [
+"HTML",
+"CSS",
+"Javascript",
+"Web Storage API"
+  ],
+},
+{
+  id: 6,
+  title: "Borrowers Log System",
+  description:
+    "The Badge Certification System is an automated platform designed to streamline and modernize the management of user certifications. It replaces the traditional manual process of verifying and renewing certificates by automatically identifying expired certifications and updating them upon renewal. When a certificate becomes invalid, the system sends real-time notifications and stores the invalid data for audit or tracking purposes. Additionally, the system includes a barcode or QR code scanning feature, allowing quick access to each user's certification status. This enables authorized personnel to instantly verify whether a badge or certificate is valid, expired, or pending renewal, improving both speed and accuracy in validation processes. The system enhances operational efficiency, minimizes the risk of oversight, and supports compliance across teams or organizations.",
+  image: "/projects/Project6.jpg", // You can update this to a new image if you have one
+  tags: [
+"HTML",
+"CSS",
+"Javascript",
+"Web Storage API"
+  ],
 }
 ,
 ];

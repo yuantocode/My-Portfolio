@@ -1,17 +1,53 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils"; // your utility for class merging
+import { cn } from "@/lib/utils"; // Tailwind class merge helper (if you're using it)
 
 const skills = [
-  { name: "HTML/CSS", category: "frontend" },
-  { name: "JavaScript", category: "frontend" },
-  { name: "React", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-  { name: "Node.js", category: "backend" },
-  { name: "Express", category: "backend" },
-  { name: "MongoDB", category: "backend" },
-  { name: "Git/GitHub", category: "tools" },
-  { name: "Figma", category: "tools" },
+  {
+    name: "HTML/CSS",
+    category: "frontend",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  },
+  {
+    name: "JavaScript",
+    category: "frontend",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  },
+  {
+    name: "React",
+    category: "frontend",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "Tailwind CSS",
+    category: "frontend",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+  },
+  {
+    name: "Node.js",
+    category: "backend",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    name: "Express",
+    category: "backend",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg",
+  },
+  {
+    name: "MongoDB",
+    category: "backend",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  },
+  {
+    name: "Git/GitHub",
+    category: "tools",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+  {
+    name: "Figma",
+    category: "tools",
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+  },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
@@ -24,7 +60,7 @@ export const SkillsSection = () => {
   );
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" className="py-24 px-4 relative bg-transparent">
       <div className="container mx-auto max-w-5xl">
         {/* Heading */}
         <motion.h2
@@ -72,9 +108,20 @@ export const SkillsSection = () => {
                   ease: "easeOut",
                 }}
                 viewport={{ once: false }}
-                className="bg-card p-6 rounded-xl shadow-md border border-border hover:shadow-lg text-center"
+                className="bg-card p-6 rounded-xl shadow-md border border-border hover:shadow-lg text-center backdrop-blur-md"
               >
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
+                <div className="flex justify-center mb-4">
+                  <div className="p-2 bg-white rounded-lg shadow w-14 h-14 flex items-center justify-center">
+                    <img
+                      src={skill.logo}
+                      alt={skill.name}
+                      className="w-8 h-8 object-contain"
+                    />
+                  </div>
+                </div>
+                <h3 className="font-semibold text-lg text-foreground">
+                  {skill.name}
+                </h3>
               </motion.div>
             ))}
           </AnimatePresence>

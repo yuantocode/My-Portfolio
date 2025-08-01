@@ -10,6 +10,7 @@ const certificates = [
     issuer: "Meta (Coursera)",
     date: "June 2025",
     file: "/certs/fullstack-meta.pdf",
+    thumbnail: "/certs/COURSERA.jpg",
   },
   {
     id: 2,
@@ -17,6 +18,7 @@ const certificates = [
     issuer: "freeCodeCamp",
     date: "March 2025",
     file: "/certs/Certificate-Of-Completion_Jimenez.pdf",
+    thumbnail: "/certs/OS.jpg",
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ const certificates = [
     issuer: "Amazon Web Services Training and Certification",
     date: "November 13, 2023",
     file: "/certs/Aws-Academy-Jimenez.pdf",
+    thumbnail: "/certs/AWS.jpg",
   },
   {
     id: 4,
@@ -31,19 +34,23 @@ const certificates = [
     issuer: "Cisco",
     date: "Nov 15, 2022",
     file: "/certs/Cisco-Jimenez.pdf",
+    thumbnail: "/certs/CS.jpg",
   },
 ];
 
 const CertsSection = () => {
   return (
-    <section id="certificates" className="py-24 px-4 relative bg-transparent">
+    <section
+      id="certificates"
+      className="py-24 px-4 relative bg-transparent"
+    >
       <div className="container mx-auto max-w-6xl">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold mb-4 text-center"
+          className="text-3xl md:text-4xl font-bold mb-4 text-center text-foreground"
         >
           My <span className="text-primary">Certificates</span>
         </motion.h2>
@@ -54,64 +61,53 @@ const CertsSection = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
         >
-          These are some of the certifications I’ve earned from various programs
-          to validate my skills and development knowledge.
+          These are some of the certifications I’ve earned to validate my skills and development knowledge.
         </motion.p>
 
-        {/* Scrollable carousel */}
-        <div className="relative">
-          {/* Scroll hint arrow */}
-          <motion.div
-            initial={{ opacity: 0, x: 0 }}
-            animate={{ opacity: 1, x: [0, 5, 0] }}
-            transition={{
-              repeat: Infinity,
-              duration: 1.5,
-              ease: "easeInOut",
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-primary pointer-events-none"
-          >
-            <ArrowRight size={28} />
-          </motion.div>
-
-          <motion.div
-            className="cursor-grab active:cursor-grabbing overflow-hidden"
-            whileTap={{ cursor: "grabbing" }}
-          >
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {certificates.map((cert) => (
             <motion.div
-              drag="x"
-              dragConstraints={{ left: -1000, right: 0 }}
-              className="flex gap-6 px-1"
+              key={cert.id}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="rounded-2xl border border-border bg-background/70 backdrop-blur-md shadow-xl p-4 flex flex-col justify-between"
             >
-              {certificates.map((cert, index) => (
-                <motion.div
-                  key={cert.id}
-                  whileHover={{ scale: 1.03 }}
-                  className="min-w-[280px] md:min-w-[340px] snap-start rounded-2xl border border-border bg-white/10 dark:bg-white/5 backdrop-blur-xl p-6 relative shadow-md transition-all duration-300"
+              {/* Thumbnail Placeholder */}
+              <div className="w-full h-48 bg-white/10 rounded-xl overflow-hidden mb-4 flex items-center justify-center text-muted-foreground text-sm">
+                {cert.thumbnail ? (
+                  <img
+                    src={cert.thumbnail}
+                    alt={`${cert.title} thumbnail`}
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <span className="text-xs">[Certificate Preview]</span>
+                )}
+              </div>
+
+              {/* Certificate Info */}
+              <div className="flex-grow">
+                <h3 className="text-lg font-semibold text-foreground mb-1">{cert.title}</h3>
+                <p className="text-sm text-muted-foreground mb-2">{cert.issuer}</p>
+                <span className="inline-block px-3 py-1 text-xs text-white bg-primary rounded-full mb-4">
+                  {cert.date}
+                </span>
+              </div>
+
+              {/* View Button */}
+              <div className="mt-auto">
+                <a
+                  href={cert.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-medium"
                 >
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {cert.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {cert.issuer}
-                  </p>
-                  <span className="inline-block px-3 py-1 text-xs text-white bg-primary rounded-full mb-4">
-                    {cert.date}
-                  </span>
-                  <div className="absolute bottom-4 right-4">
-                    <a
-                      href={cert.file}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full bg-primary/90 text-white hover:bg-primary"
-                    >
-                      <ExternalLink size={16} />
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+                  View Certificate <ExternalLink size={14} />
+                </a>
+              </div>
             </motion.div>
-          </motion.div>
+          ))}
         </div>
 
         {/* External link to Credly */}
@@ -125,7 +121,7 @@ const CertsSection = () => {
             href="https://www.credly.com/users/julian-manuel-jimenez"
             target="_blank"
             rel="noopener noreferrer"
-            className="cosmic-button inline-flex items-center gap-2 px-5 py-2 rounded-lg font-medium text-white bg-primary hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg font-medium text-white bg-primary hover:bg-primary/90 transition-colors"
           >
             View Other Certificates <ArrowRight size={16} />
           </a>
